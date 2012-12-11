@@ -1,22 +1,22 @@
 %define upstream_name    Net-Frame
 %define upstream_version 1.07
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    BSD loopback layer object
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	BSD loopback layer object
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Bit::Vector)
-BuildRequires: perl(Class::Gomor)
-BuildRequires: perl(Net::IPv6Addr)
-BuildRequires: perl(Socket6)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Bit::Vector)
+BuildRequires:	perl(Class::Gomor)
+BuildRequires:	perl(Net::IPv6Addr)
+BuildRequires:	perl(Socket6)
+BuildArch:	noarch
 
 %description
 *Net::Frame* is a fork of *Net::Packet*. The goal here was to greatly
@@ -36,24 +36,33 @@ of the modularity *Net::Frame* offers. For an example, see
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes LICENSE README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.70.0-2mdv2011.0
++ Revision: 657341
+- rebuild for updated spec-helper
+
+* Thu Feb 24 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.70.0-1
++ Revision: 639678
+- update to new version 1.07
+
+* Thu Jan 07 2010 Olivier Thauvin <nanardon@mandriva.org> 1.60.0-1mdv2011.0
++ Revision: 487174
+- import perl-Net-Frame
 
 
+* Thu Jan 07 2010 cpan2dist 1.06-1mdv
+- initial mdv release, generated with cpan2dist
