@@ -1,15 +1,15 @@
 %define upstream_name    Net-Frame
-%define upstream_version 1.07
+%define upstream_version 1.09
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 1.09
+Release:	1
 
 Summary:	BSD loopback layer object
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Net/Net-Frame-1.09.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Bit::Vector)
@@ -66,3 +66,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Thu Jan 07 2010 cpan2dist 1.06-1mdv
 - initial mdv release, generated with cpan2dist
+
