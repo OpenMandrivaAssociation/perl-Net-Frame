@@ -1,11 +1,12 @@
 %define upstream_name    Net-Frame
-%define upstream_version 1.10
+%define upstream_version 1.11
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	BSD loopback layer object
+
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
@@ -49,22 +50,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 %doc Changes LICENSE README
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
-
-%changelog
-* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.70.0-2mdv2011.0
-+ Revision: 657341
-- rebuild for updated spec-helper
-
-* Thu Feb 24 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.70.0-1
-+ Revision: 639678
-- update to new version 1.07
-
-* Thu Jan 07 2010 Olivier Thauvin <nanardon@mandriva.org> 1.60.0-1mdv2011.0
-+ Revision: 487174
-- import perl-Net-Frame
-
-
-* Thu Jan 07 2010 cpan2dist 1.06-1mdv
-- initial mdv release, generated with cpan2dist
 
 
